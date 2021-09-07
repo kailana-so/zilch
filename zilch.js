@@ -33,19 +33,10 @@ function playerRoll(){
         console.log(roll)
 
         // if roll length ie. dice left == ''(- empty) break out of loop
-        if(roll == '') {
-          break
-        }
+        if(roll == '') break;
         
-        // if roll is valid - testing
-        let hasDuplicate = roll.some((val, i) => roll.indexOf(val) !== i);
-        // console.log(hasDuplicate)
-        // console.log(roll.includes(1))
-        // console.log(roll.includes(5) )
-        if(!hasDuplicate && !roll.includes(1) && !roll.includes(5) ) {
-          console.log('invalid')
-          break
-        }
+        // if roll doesnt contain 1 or 5 or 3 of a kind
+        // if(!roll.includes('1')) break;
 
         // prompt player for choice
         const playerChoice = prompt('Choose your dice: ')
@@ -58,24 +49,14 @@ function playerRoll(){
         // else check is the player choice is 'sit' and add to sit arr
         // else score not valid
         values[playerChoice] 
-          ? playerScore.push(values[playerChoice]) && diceTaken.push(playerChoice.split('').length)
-          : playerChoice.split(',').forEach(choice => playerScore.push(values[choice]) && diceTaken.push(choice.length))
-            
-        playerChoice === 'sit' 
-          ? sit.push(playerChoice) && playerScore.push(0)
-          : null
-        playerChoice === '' 
-          ? console.log(`that's not valid!`) && playerScore.push(0)
-          : null
-
-        console.log(`You have choosen ${playerChoice}, your current score is ${playerScore.reduce((acc, num) => acc + num)}`)
-        
-        
-        
+        ? playerScore.push(values[playerChoice]) && diceTaken.push(playerChoice.split('').length) &&         console.log(`You have choosen ${playerChoice}, your current score is ${playerScore}`)
+        : playerChoice === 'sit' 
+            ? sit.push(playerChoice) && console.log(`You have choosen to ${playerChoice}, your current score is ${playerScore}`)
+            : console.log(`that's not valid!`)
 
 
         // tracking dice
-        // console.log(diceTaken)
+        console.log(playerChoice)
 
 
     }
