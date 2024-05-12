@@ -9,4 +9,4 @@
 - Score tracking and total when turn ends
 
 
-Play zilch in you terminal when your bored
+Play zilch in your terminal when you're bored
